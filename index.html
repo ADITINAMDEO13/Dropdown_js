@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cashfree</title>
+    <style>
+        #dropdown{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ul{
+            background-color: rgb(242, 246, 248);
+        } */
+
+        li{
+            padding: 10px;
+            margin-top: 10px;
+            list-style: none;
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 20px;
+            width: 180px;
+            text-align: center;
+            background-color: bisque;
+        }
+        #btnstructure
+        {
+           width: 250px;
+           margin: 10px 0 0 0;
+           border: 1px solid slategray;
+           border-radius: 20px;
+           padding: 15px;
+           font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="dropdown">
+        <button id="btnstructure" type="button" onclick="openDropdown()" value="users">
+            users </button>
+            <ul id="mylist">
+                <li id="1" onclick="handleclick('user1')">user1</li>
+                <li id="2" onclick="handleclick('user2')">user2</li>
+                <li id="3" onclick="handleclick('user3')">user3</li>
+                <li id="4" onclick="handleclick('user4')">user4</li>
+            </ul>
+
+    </div>
+    <script>
+
+        let val;
+        document.getElementById("mylist").style.visibility="hidden";
+        function openDropdown(){
+            var x=document.getElementById("mylist");
+            if(x.style.visibility==='hidden'){
+                x.style.visibility='visible'
+            }else{
+                x.style.visibility='hidden';
+            }
+        }
+
+        
+        function handleclick(val){
+            document.getElementById("btnstructure").innerHTML=val;
+            openDropdown();
+        }
+
+
+        document.addEventListener("click",function(event){
+            if(event.target.value===undefined){
+                document.getElementById("mylist").style.visibility="hidden";
+                document.getElementById("btnstructure").innerHTML="users";
+
+            }
+        })
+    </script>
+</body>
+</html>
